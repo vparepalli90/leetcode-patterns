@@ -26,6 +26,8 @@ python sliding_window/lc0209_min_size_subarray_sum.py   # one solution
 | Two pointers (fast/slow) | 26 | [Remove Duplicates from Sorted Array](two_pointers/lc0026_remove_duplicates_sorted.py) | Easy | O(n) | O(1) |
 | Two pointers (fast/slow) | 283 | [Move Zeroes](two_pointers/lc0283_move_zeroes.py) | Easy | O(n) | O(1) |
 | Stack | 20 | [Valid Parentheses](stack/lc0020_valid_parentheses.py) | Easy | O(n) | O(n) |
+| Stack (design) | 155 | [Min Stack](stack/lc0155_min_stack.py) | Medium | O(1) per op | O(n) |
+| Stack | 1047 | [Remove All Adjacent Duplicates in String](stack/lc1047_remove_adjacent_duplicates.py) | Easy | O(n) | O(n) |
 
 ## How I pick a pattern
 
@@ -35,7 +37,8 @@ python sliding_window/lc0209_min_size_subarray_sum.py   # one solution
 | subarray / substring / consecutive + longest / shortest / max | sliding window |
 | sorted + pair / target, or palindrome / reverse | two pointers, opposite ends |
 | remove / move / filter **in place** | two pointers, fast/slow |
-| matching pairs, most recent item first | stack |
+| matching pairs, cancel neighbors, most recent item first | stack |
+| O(1) min/max while adding and removing | stack storing a running value per entry |
 
 ## Sliding window questions I ask first
 
@@ -49,3 +52,5 @@ python sliding_window/lc0209_min_size_subarray_sum.py   # one solution
 - Am I using an index where I need a value, or the reverse?
 - Am I using the actual parameter name from the `def` line?
 - Does `range(...)` reach the last element?
+- Inside a class, does every attribute start with `self.`?
+- Am I reading from the input and writing to a separate result?
