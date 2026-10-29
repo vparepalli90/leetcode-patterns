@@ -17,26 +17,26 @@ def check_inclusion(s1: str, s2: str) -> bool:
     if k > len(s2):
         return False
 
-    s1_counts = {}
+    dic1 = {}
     for c in s1:
-        s1_counts[c] = s1_counts.get(c, 0) + 1
+        dic1[c] = dic1.get(c, 0) + 1
 
-    window_counts = {}
+    dic2 = {}
     for c in s2[:k]:
-        window_counts[c] = window_counts.get(c, 0) + 1
-    if window_counts == s1_counts:
+        dic2[c] = dic2.get(c, 0) + 1
+    if dic2 == dic1:
         return True
 
-    for right in range(k, len(s2)):
-        entering = s2[right]
-        window_counts[entering] = window_counts.get(entering, 0) + 1
+    for i in range(k, len(s2)):
+        entering = s2[i]
+        dic2[entering] = dic2.get(entering, 0) + 1
 
-        leaving = s2[right - k]
-        window_counts[leaving] -= 1
-        if window_counts[leaving] == 0:
-            del window_counts[leaving]
+        leaving = s2[i - k]
+        dic2[leaving] -= 1
+        if dic2[leaving] == 0:
+            del dic2[leaving]
 
-        if window_counts == s1_counts:
+        if dic2 == dic1:
             return True
 
     return False
